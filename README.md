@@ -17,5 +17,5 @@ To use phpMyOLAP it is necessary to know the basic concepts of the Data Warehous
 Work done here
 ==============
 * Forked from GitHub Repo - [github.com/apmuthu/phpMyOLAP](https://github.com/apmuthu/phpMyOLAP)
-* version 2.0 - code re-engieered
+* version 2.0 - code re-engineered
 
