@@ -4,10 +4,26 @@ class OlapEngine {
 
 function SQLgenerator($cubename_sel,$levels,$slice,$boolean,$colonna,$ordinamento,$distinct_val,$join_mode)
 {
+/*
+assert_options(ASSERT_ACTIVE, 1);
+assert_options(ASSERT_BAIL, 1);
+assert_options(ASSERT_QUIET_EVAL, 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+*/
 
 //print "ORDER $colonna,$ordinamento<br>";
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();
+
+$target_list="";
+$join_final="";
+$group_final="";
+$mea="";
+$where=array();
+$group=array();
+
 //$levels=explode("-",$levels_ser);
 
 if($join_mode=="true")
@@ -147,8 +163,8 @@ if($dim1=="cube" and $hier1=="cube" and $lev1=="aggregate")
                       $level_table=$level['table'];
                       if($level_table=="") $level_table=$pk_hiertable;
                       $level_col=$level['column'];
-                      $group[$i]="$level_table.$level_col";
-                      
+                      $group[]="$level_table.$level_col";
+                      //print "AAA $i".$group[$i]; 
                       foreach($level->Property as $prop)
                       {
                         $propname=$prop['name'];
@@ -246,7 +262,9 @@ foreach($xml->Dimension as $dimensioncube)
 // {
 // $where_final = $where_final . " $where[$i] $boolean ";
 // }
-
+$numwhere=count($where);
+$where_final="";
+if($numwhere>0)
 $where_final=implode(" $boolean ",$where);
 //print "WF $where_final<br>";
 //***********************elimina join ridondanti
@@ -272,16 +290,20 @@ $target_list=substr($target_list,0,$n-1);
 
 
 //******************************costruisci group by
-for($i=0;$i<$nl;$i++) 
+$numg=count($group);
+
+for($i=0;$i<$numg;$i++) 
 {
-  for($j=0;$j<$nl;$j++) 
+  for($j=0;$j<$numg;$j++) 
   {
     if ($i!=$j && $group[$i]==$group[$j])
       $group[$j]="";
   }
 }
 
-for($i=0;$i<$nl;$i++) 
+//$m45=count($group);
+//print "M45 $m45 0=". $group[0]."<br>";
+for($i=0;$i<$numg;$i++) 
 {
 if($group[$i]!="")
  $group_final.="$group[$i],";
@@ -289,7 +311,6 @@ if($group[$i]!="")
 
 $n=strlen($group_final);
 $group_final=substr($group_final,0,$n-1);
-
 
 //***********************costruisci query finale
 // $n=strlen($where_final);
@@ -318,6 +339,9 @@ else
 }
 
 //***************************ORDINAMENTO
+//print "COLONNA $colonna<br>";
+$tab1="";
+if($colonna!="")
 list($tab1,$col1)=explode(".",$colonna);
 $a=strrpos($join_final,$tab1);
 

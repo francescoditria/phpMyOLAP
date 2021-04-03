@@ -7,7 +7,7 @@ $db['name'] = 'FoodMart';
 
 $title='phpMyOLAP';
 $urlsito='http://localhost/phpMyOLAP';
-$xmlfile="$urlsito/schema/FoodMart2.xml";
+$xmlfile="FoodMart2.xml";
 
 //default language file
 $lang = "en.php";

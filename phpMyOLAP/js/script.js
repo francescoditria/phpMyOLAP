@@ -133,6 +133,7 @@ var row = document.createElement("tr");
 var idriga=tbl.rows.length;
 //var m=idriga+1;
 
+//alert(op_boolean);
 if(idriga==0)
 {
 var cella = document.createElement("td");
@@ -151,7 +152,6 @@ new_boolean="OR";
 else
 new_boolean="AND";
 
-
 opt3.value=new_boolean;
 opt3.text=new_boolean;
 inputa.appendChild(opt3);
@@ -162,6 +162,7 @@ inputa.setAttribute( "type", "text" );
 cella.appendChild(inputa);
 row.appendChild(cella);
 }
+
 if(idriga>0)
 {
 var prec=idriga-1;
@@ -202,11 +203,11 @@ row.appendChild(cell3);
 
 var cell4 = document.createElement("td");
 cell4.align="center";
+
+
 var rif4= document.createElement("a");
-//rif4.href="#";
 rif4.style.cursor = "pointer";
 rif4.onclick=function() {row.parentNode.removeChild(row);}
-
 var immagine4 = document.createElement( "img" );
 immagine4.src=img_del;
 immagine4.border=0;
@@ -215,8 +216,6 @@ immagine4.height=20;
 cell4.appendChild(rif4);
 rif4.appendChild(immagine4);
 
-
-///////
 var rif5= document.createElement("a");
 rif5.style.cursor = "pointer";
 rif5.onclick=function() {get_column_values(property,"value"+idriga);}
@@ -225,8 +224,8 @@ immagine5.src=img_search;
 immagine5.border=0;
 immagine5.width=20;
 immagine5.height=20;
-rif5.appendChild(immagine5);
 cell4.appendChild(rif5);
+rif5.appendChild(immagine5);
 ////////
 
 row.appendChild(cell4);
@@ -542,9 +541,11 @@ var nrows=tbl.rows.length;
 for(i=0;i<nrows;i++)
 {
 var bool = document.getElementById('bool0').value;
+//alert(bool);
 var property=document.getElementById('property'+i).innerHTML;
 var operator=document.getElementById('operator'+i).value;
 var value=document.getElementById('value'+i).value;
+//alert(value);
 v[i]=property+'.'+operator+'.'+value;
 //v[i]=property+'.'+operator+value;
 x = document.createElement("input");

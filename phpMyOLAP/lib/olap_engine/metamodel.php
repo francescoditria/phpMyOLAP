@@ -5,8 +5,9 @@ function get_column_values($cubename_sel,$property)
 {
 
 list($dim,$hiera,$lev,$prope)=explode(".",$property);
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 
 foreach($xml->Cube as $cube)
@@ -77,8 +78,9 @@ return $query;
 
 function change_dim($cubename_sel,$tabella,$colonna)
 {
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 
 foreach($xml->Cube as $cube)
@@ -167,8 +169,11 @@ return $valore_opt;
 
 function change_hier($cubename_sel,$tabella,$colonna)
 {
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
+
 foreach($xml->Cube as $cube)
 {
   $cubename=$cube['name'];
@@ -259,8 +264,9 @@ return $valore_opt;
 
 function change_level($cubename_sel,$tabella,$colonna)
 {
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 //print "PAR $cubename_sel,$tabella,$colonna";
 
@@ -356,10 +362,12 @@ return $valore_opt;
 
 function get_col_name()
 {
-global $xmlfile;
+//global $xmlfile;
 
 $v=false;
-$xml=simplexml_load_file($xmlfile);
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 foreach($xml->Dimension as $dimensioncube)
 {
   foreach($dimensioncube->Hierarchy as $hier)
@@ -379,8 +387,9 @@ return $level_col;
 
 function get_last_level($cubename_sel,$dimensionname_sel,$hiername_sel,$levelname_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 foreach($xml->Cube as $cube)
 {
@@ -426,8 +435,10 @@ return $lastL;
 
 function get_prop($cubename_sel,$dimensionname_sel,$hiername_sel,$levelname_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 
 foreach($xml->Cube as $cube)
 {
@@ -468,8 +479,10 @@ return $propname;
 
 function get_levels($cubename_sel,$dimensionname_sel,$hiername_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();
+
 
 foreach($xml->Cube as $cube)
 {
@@ -511,8 +524,10 @@ return $levelname;
 
 function get_last_hier($cubename_sel,$dimensionname_sel,$hiername_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 
 foreach($xml->Cube as $cube)
 {
@@ -553,9 +568,11 @@ return $lastH;
 
 
 
-function get_last_dim($cubename_sel,$dimensionname_sel) {
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+function get_last_dim($cubename_sel,$dimensionname_sel) 
+{
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 //trova ultima dimensione
 foreach($xml->Cube as $cube)
@@ -572,10 +589,12 @@ return $lastD;
 
 }
 
-function get_hier($cubename_sel,$dimensionname_sel) {
+function get_hier($cubename_sel,$dimensionname_sel) 
+{
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
 
 
 
@@ -610,8 +629,10 @@ return $hiername;
 
 function get_functions($cubename_sel,$measurename_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 
 $function[0]="sum";
 $function[1]="avg";
@@ -631,15 +652,19 @@ return $functionname;
 
 function get_cubes() {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+/*
+assert_options(ASSERT_ACTIVE, 1);
+assert_options(ASSERT_BAIL, 1);
+assert_options(ASSERT_QUIET_EVAL, 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+*/
 
-//print_r($xml);
+$xml=buildxml();  
     
 foreach($xml->Cube as $cube)
 {
-  $cubename[]=$cube['name'];
-    
+  $cubename[]=$cube['name'];    
 }
 return $cubename;
 }
@@ -647,8 +672,10 @@ return $cubename;
 
 function get_dimensions($cubename_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 
 foreach($xml->Cube as $cube)
 {
@@ -672,8 +699,10 @@ return $dimensionname;
 
 function get_measures($cubename_sel) {
 
-global $xmlfile;
-$xml=simplexml_load_file($xmlfile);
+//global $xmlfile;
+//$xml=simplexml_load_file($xmlfile);
+$xml=buildxml();  
+
 
 foreach($xml->Cube as $cube)
 {

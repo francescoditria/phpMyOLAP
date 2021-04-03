@@ -1,5 +1,21 @@
 <?php
 
+function buildxml()
+{
+global $xmlfile;
+assert_options(ASSERT_ACTIVE, 1);
+assert_options(ASSERT_BAIL, 1);
+assert_options(ASSERT_QUIET_EVAL, 1);
+error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+
+$xmlfile2=dirname(__FILE__) . "/../../schema/".$xmlfile;
+$feed = file_get_contents($xmlfile2);
+$xml=simplexml_load_string($feed);
+return $xml;
+
+}
+
 function validate_email($email)
 {
 

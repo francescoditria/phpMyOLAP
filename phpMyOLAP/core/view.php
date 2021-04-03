@@ -339,6 +339,7 @@ $nc=count($slice);
 for($i=0;$i<$nc;$i++)
 {
 list($d,$h,$l,$p,$c,$v)=explode(".",$slice[$i]);
+//print "\"$d.$h.$l.$p\",\"$c\",\"$v\",\"$img_del\",\"$img_search\",\"$boolean\"";
 print "<script>restore_condition(\"$d.$h.$l.$p\",\"$c\",\"$v\",\"$img_del\",\"$img_search\",\"$boolean\");</script>";
 }
 
@@ -351,9 +352,14 @@ function generate_bar($cubename,$levels,$slice,$boolean,$order_by_col,$order_by_
  global $urlsito;
  global $message;
  
+ // $slice="!!";
+ 
 $export[]=$cubename;
 $export[]=implode("!!",$levels);
+if($slice!="")
 $export[]=implode("!!",$slice);
+else
+$export[]="";
 $export[]=$boolean;
 $export[]=$order_by_col;
 $export[]=$order_by_type;
@@ -510,6 +516,8 @@ print "</center>";
  }
  print "</select>";
  
+
+print "<input type=hidden name='bool0' id='bool0' value='$boolean'>";
 
 //TABLE Condition
 $nc=count($slice); 

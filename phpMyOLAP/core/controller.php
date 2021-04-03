@@ -142,6 +142,7 @@ class Controller {
       $v->show_header();
       $cubes=$mm->get_cubes();
       $v->show_new($cubes);
+      //print "$cubename,$slice, AAA $boolean,$levels,$distinct,$join,$order_by_col,$order_by_type";
       $v->modify_report($cubename,$slice,$boolean,$levels,$distinct,$join,$order_by_col,$order_by_type);
       break;
  
