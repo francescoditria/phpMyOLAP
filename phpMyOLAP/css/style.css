@@ -1,0 +1,63 @@
+body {background: #ffffff;}
+
+a 
+{cursor:pointer;color: #0000FF; background-color: transparent; text-decoration: none;}
+
+a:visited 
+{cursor:pointer;color: #0000FF; background-color: transparent; text-decoration: none;}
+
+a:active 
+{cursor:pointer;color: #0000FF; background-color: transparent; text-decoration: none;}
+
+a:hover 
+{cursor:pointer;color: red; background-color: transparent; text-decoration: none;}
+
+
+h1 {text-align:center; font-family: Comic Sans MS; font-weight:bold; color:#000000;font-size:30pt;}
+h2 {text-align:center; font-family: Comic Sans MS; font-weight:bold; color:#000000;font-size:20pt;}
+h3 {text-align:center; font-family: Comic Sans MS; font-weight:bold; color:#000000;font-size:15pt;}
+
+font.head {margin-left: 50px;text-align:center;font-family: Comic Sans MS; font-weight:bold; color:#ffffff;font-size:20pt;}
+
+
+a.buttontable{cursor: pointer;display:block; min-width: 110px;height: 35px;text-decoration:none;text-align:center;font:bold 16px/35px "Trebuchet MS",Arial,sans-serif;background: #080ca8;color:#ffffff;}
+a.buttontable:hover{background-position: 0 -35px;background: #ffffff;color:#080ca8;}
+a.buttontable:active{background-position: 0 -70px;background: #ffffff;color:#080ca8;}
+
+
+a.buttontable2{cursor: pointer;color: #CFCFCF; background-color: transparent; text-decoration: none;}
+a.buttontable2:hover{color: #FFFFFF; background-color: transparent; text-decoration: none;}
+a.buttontable2:active{color: #FFFFFF; background-color: transparent; text-decoration: none;}
+
+
+
+a.button{display:block; width: 80px;height: 25px;text-decoration:none;text-align:center;-moz-border-radius:8px;-webkit-border-radius:8px;-moz-border-shadow:1px 1px 0 #145278;-webkit-border-shadow:1px 1px 0 #145278;font:bold 15px/25px "Trebuchet MS",Arial,sans-serif;background: #55CB00;color:#FFF;cursor:pointer;}
+a.button:hover{background-position: 0 -35px;background: #55ff22;color:#FFF}
+a.button:active{background-position: 0 -70px;background: #55ff22;color:#FFF}
+
+
+div#navigation{background-color: #92d050;text-align: left;border-top:none;margin-left: 50px;margin-right: 50px;margin-bottom: 0px;margin-top: 2px;}
+div#navigation ul{list-style-type: none;margin: 0;padding: 0px;white-space: nowrap}
+div#navigation li{display: inline;margin: 0;padding: 1px 0.5em}
+
+div#navigation li a{text-decoration: none;border: 1px solid #787878;padding: 1px 0.5em;background: #ccc;color: #036}
+
+div#navigation li a:hover{background-color: #f0f0f0;text-decoration: underline;}
+
+div#navigation li#activelink a{background-color: white;color: black;}  
+
+
+
+div.divPopup{background-color: white;min-width:2000px;min-height:500px;border: 1px grey solid;visibility:hidden;position:absolute;position:fixed;}
+
+div.divPopup2{margin-top:10px;margin-left:10px;margin-right:10px;}
+
+
+div.result{min-height:800px;min-width:500px;background-color: white;border-left: 1px grey solid;border-right: 1px grey solid;border-bottom: 1px grey solid;border-top: 1px grey solid;margin-left: 50px;margin-right: 50px;margin-bottom: 10px;}
+
+table.bordato{border-left: 1px grey solid;border-right: 1px grey solid;border-bottom: 1px grey solid;border-top: 1px grey solid;margin-left: 40px;margin-right: 10px;margin-bottom: 10px;margin-top: 40px;background-color: #e7e4e4;}
+
+div.result2{margin-left: 20px;margin-right: 20px;margin-bottom: 20px;margin-top: 1px;}
+
+table.bar{color:#FF0000;border:0;background:#000000;border-spacing:7;padding:4;margin-right: -50px;margin-left: -10px;margin-bottom: 20px;margin-top: -10px;width:102%;border:0;}
+
