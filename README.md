@@ -1,4 +1,4 @@
-phpMyOLAP
+phpMyOLAP version 2.0
 =========
 * [OLAP](http://olap.com/olap-definition/) - OnLine Analytical Processing | [Wikipedia](https://en.wikipedia.org/wiki/Online_analytical_processing)
 * Sourceforge Site <a href='http://sourceforge.net/projects/phpmyolap/'><b>sf.net/p/phpmyolap</b></a>
@@ -17,5 +17,5 @@ To use phpMyOLAP it is necessary to know the basic concepts of the Data Warehous
 Work done here
 ==============
 * Forked from GitHub Repo - [github.com/apmuthu/phpMyOLAP](https://github.com/apmuthu/phpMyOLAP)
-* version 2.0 - code re-engineered
+* code re-engineered
 
