@@ -4,6 +4,9 @@ class OlapEngine {
 
 function SQLgenerator($cubename_sel,$levels,$slice,$boolean,$colonna,$ordinamento,$distinct_val,$join_mode)
 {
+//print "DIS $distinct_val<br>";
+//print "JOIN $join_mode ORDER BY $colonna ORDER TYPE $ordinamento<br>";
+//print "ppp $levels";
 /*
 assert_options(ASSERT_ACTIVE, 1);
 assert_options(ASSERT_BAIL, 1);
@@ -54,7 +57,7 @@ $nj=0;
 for($i=0;$i<$nl;$i++) 
 {
 list($dim1,$hier1,$lev1,$prop1)=explode(".",$levels[$i]);
-
+//print "BBB $dim1,$hier1,$lev1,$prop1<br>";
 
 if($dim1=="cube" and $hier1=="cube" and $lev1!="aggregate")
 {
@@ -97,7 +100,7 @@ if($dim1=="cube" and $hier1=="cube" and $lev1=="aggregate")
   $measurename2=$measure["name"];
   $measurecol=$measure["column"];
   if($measurename2==$measurename)
-    $target_list.="$funz($measurecol),";
+    $target_list.="$funz($measurecol) as {$funz}_{$measurecol},";
     $groupby=true;
   }
   
@@ -346,13 +349,13 @@ list($tab1,$col1)=explode(".",$colonna);
 $a=strrpos($join_final,$tab1);
 
 if($tab1!="" && $a!=false && $colonna!="" && $ordinamento!="")
-$query="$query order by $col1 $ordinamento";
+$query="$query order by $tab1.$col1 $ordinamento";
 
 if($tab1=="" && $colonna!="" && $ordinamento!="")
 $query="$query order by $col1 $ordinamento";
 
 if($tab1!="" && $a=="" && $colonna!="" && $ordinamento!="")
-$query="$query order by $col1 $ordinamento";
+$query="$query order by $tab1.$col1 $ordinamento";
 
 //print "TAB $tab1 JOIN $join_final A $a COLONNA $colonna ORDINAMENTO $ordinamento<br>";
 

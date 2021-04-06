@@ -76,6 +76,7 @@ return $query;
 
 }
 
+
 function change_dim($cubename_sel,$tabella,$colonna)
 {
 //global $xmlfile;
