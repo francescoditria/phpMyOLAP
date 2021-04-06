@@ -325,6 +325,9 @@ global $urlsito;
 $img_del="$urlsito/img/delete.png";
 $img_search="$urlsito/img/search.png";
 
+$order_by_col="";
+$order_by_type="";
+
     print "<script>show_tree2(\"$cubename\",\"$order_by_col\",\"$order_by_type\",\"$distinct\",\"$join\")</script>";
 
       $n=count($levels);
