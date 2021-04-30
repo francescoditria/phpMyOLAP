@@ -7,9 +7,9 @@ phpMyOLAP version 2.0
 What is phpMyOLAP?
 ==================
 phpMyOLAP is a web application written in PHP for data warehouse analysis in MySQL.
-It consists of a graphical interface for the exploration of the multidimensional model and for the formulation of OLAP queries with an Access-type Query-By-Example approach.
+It consists of a graphical interface for the exploration of the multidimensional model and for the formulation of OLAP queries with an Access-like Query-By-Example approach.
 Its use therefore does not require knowledge of languages ​​such as SQL or MDX.
-Moreover, having its own OLAP Engine, does not require the presence of additional libraries and does not rely on Java-based web services.
+Moreover, having its own OLAP Engine, it does not require the presence of additional libraries and does not rely on Java-based web services.
 Requirements
 
 To use phpMyOLAP it is necessary to know the basic concepts of the Data Warehouse, such as the multidimensional model and the functioning of the main OLAP operators.
@@ -19,3 +19,6 @@ Work done here
 * Forked from GitHub Repo - [github.com/apmuthu/phpMyOLAP](https://github.com/apmuthu/phpMyOLAP)
 * code re-engineered
 
+Contributors
+==============
+* [JFernando122](https://github.com/JFernando122)
